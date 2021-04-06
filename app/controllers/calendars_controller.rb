@@ -34,7 +34,11 @@ class CalendarsController < ApplicationController
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
-      days = { :month => (@todays_date + x).month, :date => (@todays_date+x).day, :plans => today_plans}
+      # issue1 ハッシュロケットをシンボル型に変更
+      # days = { :month => (@todays_date + x).month, :date => (@todays_date+x).day, :plans => today_plans}
+      # [キーの前の:を削除、=>を:に変更] synaxerror
+      # キーとキーのすぐ後の:の間にあるスペースを取り除く
+      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: today_plans}
       @week_days.push(days)
     end
 
