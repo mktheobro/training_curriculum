@@ -15,7 +15,11 @@ class CalendarsController < ApplicationController
   private
 
   def plan_params
-    params.require(:calendars).permit(:date, :plan)
+    # issue4
+    # params.require(:calendars).permit(:date, :plan)
+    # params require(:モデル名) permit(:キー名, :キー名)
+    # calendarsというモデルは存在しない
+    params.require(:plan).permit(:date, :plan)
   end
 
   def getWeek
