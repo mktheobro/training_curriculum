@@ -15,14 +15,13 @@
         <div class='date'>
           <% day[:month] %>/<% day[:date] %>
         </div>
-        <%# issue3 2並立タグの修正 %>
-        <div class='content'>
+        <ul class='content'>
         <% if day[:plans].length != 0 %>
           <% day[:plans].each do |plan| %>
-            <div class='plan-list'>・<%= plan %></div>
+            <li class='plan-list'>・<%= plan %></li>
           <% end %>
         <% end %>
-        </div>
+        </ul>
       </div>
     <% end %>
   </div>
