@@ -22,7 +22,15 @@ class CalendarsController < ApplicationController
     params.require(:plan).permit(:date, :plan)
   end
 
+  # issue 6
+  # index.html.erbの方に月日と同様にwdayを表示するように変更
+  # カリキュラムに従い記述し、問われたものを自分が思うように記述してみる
+  # 全部火曜日（Today）になってしまう
+  # 火曜から始まるが、日曜月曜の表示がされない
+  
+
   def getWeek
+    # require "date"
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
 
     # Dateオブジェクトは、日付を保持しています。下記のように`.today.day`とすると、今日の日付を取得できます。
@@ -38,7 +46,13 @@ class CalendarsController < ApplicationController
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
-      days = { :month => (@todays_date + x).month, :date => (@todays_date+x).day, :plans => today_plans}
+
+      wday_num = Date.today.wday + x
+      if wday_num >= 7
+        wday_num = wday_num -7
+      end
+
+      days = { :month => (@todays_date + x).month, :date => (@todays_date + x).day, :plans => today_plans, :wday => wdays[wday_num]}
       @week_days.push(days)
     end
 
