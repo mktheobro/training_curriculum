@@ -1,13 +1,14 @@
-<div>
+<%# issue3 不要なdivタグを削除 %>
+<%# <div> %>
   <%= form_with model: @plan, url: calendars_path, class: 'form' do |f| %>
     <%= f.label :日付を選択, class: 'lavel' %>
     <%= f.date_field :date, class: 'date-select' %>
-    <%= f.label :予定を入力, class: 'lavel' %>
+    <%= f.label :予定を入力　class: 'lavel'%>
     <%= f.text_field :plan, class: 'text-input' %>
     <%= f.submit '保存' %>
   <% end %>
-</div>
-<div>
+<%# </div> %>
+<%# <div> %>
   <div class='calendar'>
     <% @week_days.each do |day| %>
       <div class='item'>
@@ -25,4 +26,4 @@
       </div>
     <% end %>
   </div>
-</div>
+<%# </div> %>
