@@ -5,7 +5,8 @@ class CalendarsController < ApplicationController
      # issue2 rubyの命名規則に合わせる
      # メソッドはスネークケース
      # def getWeek
-    get_Week
+    #  大文字を小文字に変更
+    get_week
     @plan = Plan.new
   end
 
@@ -24,7 +25,8 @@ class CalendarsController < ApplicationController
   # issue2 rubyの命名規則に合わせる
   # メソッドはスネークケース
   # def getWeek
-  def get_Week
+  # 大文字を小文字に変更
+  def get_week
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
 
     # Dateオブジェクトは、日付を保持しています。下記のように`.today.day`とすると、今日の日付を取得できます。
